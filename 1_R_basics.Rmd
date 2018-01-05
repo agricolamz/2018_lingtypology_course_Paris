@@ -1,6 +1,6 @@
 ---
 title: "1. Small introduction to R and RStudio"
-author: "[G. Moroz](mailto:agricolamz@gmail.com) <br> Presentation link: https://goo.gl/HdS466"
+author: "[G. Moroz](mailto:agricolamz@gmail.com) <br> Presentation link: goo.gl/HdS466"
 ---
 
 ```{r setup, include=FALSE}
