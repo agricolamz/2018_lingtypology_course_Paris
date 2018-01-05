@@ -28,16 +28,23 @@ knitr::opts_chunk$set(message = FALSE, warning = FALSE, comment=NA)
 ## 0. Prerequisites:
 
 * install [R](https://cran.r-project.org/)
-* install [RStudio](http://www.rstudio.com/download) (it is not necessary, but RStudio makes a lot of things easier)
+* install [RStudio Desktop](http://www.rstudio.com/download) (it is not necessary, but RStudio makes a lot of things easier)
 
-## 1. RStudio
+## 1. R
+To download R, go to [CRAN](https://cran.r-project.org/). Don’t try to pick a mirror that’s close to you, instead it is better to use the cloud mirror, https://cloud.r-project.org.
+
+## 2. RStudio
+![]()
+
 RStudio is an integrated development environment, or IDE, for R programming. For now, all you need to know is that you type R code in the console pane, and press enter to run it.
 
 ## Further reading
 
-There are a lot of books, articles, tutorials and online courses about R. And most of them are free. Here is some of them:
+There are a lot of books, articles, tutorials and online courses about R. And some of them are free. Here is some of them:
 
-* [book _R for Data Science_ by Grolemund G. and Wickham H.](http://r4ds.had.co.nz/)
+* [book _R for Data Science_ by G. Grolemund and H. Wickham](http://r4ds.had.co.nz/)
 * [on-line course _Introduction à R_ by V. Guyader](https://www.datacamp.com/community/open-courses/introduction-a-r)
+* [book _How to do Linguistics with R_  by N. Levshina](https://benjamins.com/#catalog/books/z.195/main)
+* [book _Statistics for Linguistics with R_ by S. Gries](https://www.amazon.com/dp/3110307286)
 
 <div class="parallax"></div>

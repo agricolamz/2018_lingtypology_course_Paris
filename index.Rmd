@@ -14,4 +14,4 @@ paste("lingtypology version:", packageVersion("lingtypology"))
 Prerequisites:
 
 * install [R](https://cran.r-project.org/)
-* install [RStudio](http://www.rstudio.com/download) (it is not necessary, but RStudio makes a lot of things easier)
+* install [RStudio Desktop](http://www.rstudio.com/download) (it is not necessary, but RStudio makes a lot of things easier)
