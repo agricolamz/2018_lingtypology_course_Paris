@@ -1,0 +1,26 @@
+name: ''
+navbar:
+  left:
+  - text: 1. R basics
+    href: 1_R_basics.html
+  - text: 2. glottolog functions
+    href: 2_glottolog.html
+  - text: 3. map creation
+    href: 3_map.html
+  - text: 4. typolofical databases
+    href: 4_typological_databases.html
+output_dir: docs
+output:
+  html_document:
+    lib_dir: site_libs
+    self_contained: no
+    theme: spacelab
+    highlight: pygments
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+    smooth_scroll: false
+    df_print: paged
+    include:
+      after_body: footer.html
+

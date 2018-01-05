@@ -1,0 +1,33 @@
+---
+title: "3. Creating maps"
+author: "[G. Moroz](mailto:agricolamz@gmail.com) <br> Presentation link: "
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE, comment=NA)
+```
+
+<style>
+.parallax {
+    /* The image used */
+    background-image: url("logo.png");
+
+    /* Set a specific height */
+    min-height: 350px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+    #wrap { width: 700px; height: 550px; padding: 0; overflow: hidden; }
+    #frame { width: 900px; height: 700px; border: 1px solid LightGray; }
+    #frame {  zoom: 0.75;
+              -moz-transform: scale(0.7); 
+              -moz-transform-origin: 0 0; }
+</style>
+
+<div class="parallax"></div>
+
+## S

@@ -1,0 +1,17 @@
+---
+title: "`lingtypology` in Paris (19.01.2018)"
+author: "[G. Moroz](mailto:agricolamz@gmail.com)"
+output:
+  html_document:
+    toc: false
+---
+
+```{r, message=FALSE, echo=FALSE}
+sessionInfo()$R.version$version.string
+paste("lingtypology version:", packageVersion("lingtypology"))
+```
+
+Prerequisites:
+
+* install [R](https://cran.r-project.org/)
+* install [RStudio](http://www.rstudio.com/download) (it is not necessary, but RStudio makes a lot of things easier)

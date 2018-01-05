@@ -1,0 +1,43 @@
+---
+title: "1. Small introduction to R and RStudio"
+author: "[G. Moroz](mailto:agricolamz@gmail.com) <br> Presentation link: "
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE, comment=NA)
+```
+
+<style>
+.parallax {
+    /* The image used */
+    background-image: url("logo.png");
+
+    /* Set a specific height */
+    min-height: 350px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+</style>
+
+<div class="parallax"></div>
+
+## 0. Prerequisites:
+
+* install [R](https://cran.r-project.org/)
+* install [RStudio](http://www.rstudio.com/download) (it is not necessary, but RStudio makes a lot of things easier)
+
+## 1. RStudio
+RStudio is an integrated development environment, or IDE, for R programming. For now, all you need to know is that you type R code in the console pane, and press enter to run it.
+
+## Further reading
+
+There are a lot of books, articles, tutorials and online courses about R. And most of them are free. Here is some of them:
+
+* [book _R for Data Science_ by Grolemund G. and Wickham H.](http://r4ds.had.co.nz/)
+* [on-line course _Introduction à R_ by V. Guyader](https://www.datacamp.com/community/open-courses/introduction-a-r)
+
+<div class="parallax"></div>
