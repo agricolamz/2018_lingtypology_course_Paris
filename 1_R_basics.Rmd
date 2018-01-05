@@ -13,7 +13,7 @@ knitr::opts_chunk$set(message = FALSE, warning = FALSE, comment=NA)
     background-image: url("logo.png");
 
     /* Set a specific height */
-    min-height: 350px; 
+    min-height: 300px; 
 
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
@@ -34,17 +34,20 @@ knitr::opts_chunk$set(message = FALSE, warning = FALSE, comment=NA)
 To download R, go to [CRAN](https://cran.r-project.org/). Don’t try to pick a mirror that’s close to you, instead it is better to use the cloud mirror, https://cloud.r-project.org.
 
 ## 2. RStudio
-![]()
+RStudio is an integrated development environment, or IDE, for R programming. There are two possibilities:
 
-RStudio is an integrated development environment, or IDE, for R programming. For now, all you need to know is that you type R code in the console pane, and press enter to run it.
+* you type R code in the R console pane, and press enter to run it
+* you type R code in the Code editor pane, and press control/command + enter to run selected part
+
+![](https://raw.githubusercontent.com/agricolamz/2018_lingtypology_course_Paris/master/rstudio.png)
 
 ## Further reading
 
 There are a lot of books, articles, tutorials and online courses about R. And some of them are free. Here is some of them:
 
-* [book _R for Data Science_ by G. Grolemund and H. Wickham](http://r4ds.had.co.nz/)
-* [on-line course _Introduction à R_ by V. Guyader](https://www.datacamp.com/community/open-courses/introduction-a-r)
-* [book _How to do Linguistics with R_  by N. Levshina](https://benjamins.com/#catalog/books/z.195/main)
-* [book _Statistics for Linguistics with R_ by S. Gries](https://www.amazon.com/dp/3110307286)
+* [book _"R for Data Science"_ by G. Grolemund and H. Wickham](http://r4ds.had.co.nz/)
+* [on-line course _"Introduction à R"_ by V. Guyader](https://www.datacamp.com/community/open-courses/introduction-a-r)
+* [book _"How to do Linguistics with R"_  by N. Levshina](https://benjamins.com/#catalog/books/z.195/main)
+* [book _"Statistics for Linguistics with R"_ by S. Gries](https://www.amazon.com/dp/3110307286)
 
 <div class="parallax"></div>
