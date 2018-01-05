@@ -1,6 +1,6 @@
 ---
 title: "2. Glottolog functions"
-author: "[G. Moroz](mailto:agricolamz@gmail.com) <br> Presentation link: "
+author: "[G. Moroz](mailto:agricolamz@gmail.com) <br> Presentation link: https://goo.gl/PS2UD4"
 ---
 
 ```{r setup, include=FALSE}

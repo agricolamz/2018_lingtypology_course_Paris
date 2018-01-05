@@ -1,6 +1,6 @@
 ---
 title: "4. Get data from typological databases"
-author: "[G. Moroz](mailto:agricolamz@gmail.com) <br> Presentation link: "
+author: "[G. Moroz](mailto:agricolamz@gmail.com) <br> Presentation link: https://goo.gl/3opzR3"
 ---
 
 ```{r setup, include=FALSE}
