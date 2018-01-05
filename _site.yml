@@ -6,7 +6,7 @@ navbar:
   - text: 2. glottolog functions
     href: 2_glottolog.html
   - text: 3. map creation
-    href: 3_map.html
+    href: 3_maps.html
   - text: 4. typolofical databases
     href: 4_typological_databases.html
 output_dir: docs
