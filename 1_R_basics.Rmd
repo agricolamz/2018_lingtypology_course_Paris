@@ -142,7 +142,7 @@ sum(is.na(new_df))
 
 ## 4. Further reading
 
-There are a lot of books, articles, tutorials and online courses about R. And some of them are free. Here is some of them:
+There are a lot of books, articles, tutorials and online courses about R. Here is some of them:
 
 * [book _"R for Data Science"_ by G. Grolemund and H. Wickham](http://r4ds.had.co.nz/)
 * [on-line course _"Introduction à R"_ by V. Guyader](https://www.datacamp.com/community/open-courses/introduction-a-r)
