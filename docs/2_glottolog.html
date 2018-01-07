@@ -28,6 +28,49 @@
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
 
 
 <style type="text/css">
@@ -285,7 +328,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore"><ol start="3" style="list-style-type: decimal">
+<h1 class="title toc-ignore"><ol start="2" style="list-style-type: decimal">
 <li>Glottolog functions</li>
 </ol></h1>
 <h4 class="author"><em><a href="mailto:agricolamz@gmail.com">G. Moroz</a> <br> Presentation link: goo.gl/PS2UD4</em></h4>
@@ -317,7 +360,121 @@ div.tocify {
 
 </div>
 <div id="about-glottolog" class="section level2">
-<h2>1. About Glottolog</h2>
+<h2>1. About <a href="http://glottolog.org/">Glottolog</a></h2>
+<blockquote>
+<p><em>Glottolog provides a comprehensive catalogue of the world’s languages, language families and dialects. It assigns a unique and stable identifier (the Glottocode) to (in principle) all languoids, i.e. all families, languages, and dialects.</em></p>
+</blockquote>
+<div class="parallax">
+
+</div>
+</div>
+<div id="glottolog-functions-in-lingtypology" class="section level2">
+<h2>2. Glottolog functions in <code>lingtypology</code></h2>
+<p>Don’t forget to load a library:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;lingtypology&quot;</span>)</code></pre></div>
+<div id="command-names-syntax" class="section level3">
+<h3>2.1 Command name’s syntax</h3>
+<p>Most of the functions in <code>lingtypology</code> have the same syntax: <strong>what you need.what you have</strong>. Most of them are based on <em>language name</em>.</p>
+<ul>
+<li><strong>aff.lang()</strong> — get affiliation by language</li>
+<li><strong>area.lang()</strong> — get macro area by language</li>
+<li><strong>country.lang()</strong> — get country by language</li>
+<li><strong>iso.lang()</strong> — get ISO 639-3 code by language</li>
+<li><strong>gltc.lang()</strong> — get glottocode (identifier for a language in the Glottolog database) code by language</li>
+<li><strong>lat.lang()</strong> — get latitude by language</li>
+<li><strong>long.lang()</strong> — get longitude by language</li>
+</ul>
+<p>Some of them help to define a vector of languages.</p>
+<ul>
+<li><strong>lang.aff()</strong> — get language by affiliation</li>
+<li><strong>lang.iso()</strong> — get language by ISO 639-3 code</li>
+<li><strong>lang.gltc()</strong> — get language by glottocode</li>
+</ul>
+<p>Additionally there are some functions to convert glottocodes to ISO 639-3 codes and vice versa:</p>
+<ul>
+<li><strong>gltc.iso()</strong> — get glottocode by ISO 639-3 code</li>
+<li><strong>iso.gltc()</strong> — get ISO 639-3 code by glottocode</li>
+</ul>
+<p><a href="http://glottolog.org/">Glottolog database (v. 2.7)</a> provides <code>lingtypology</code> with language names, ISO codes, genealogical affiliation, macro area, countries, coordinates, and much information. This set of functions doesn’t have a goal to cover all possible combinations of functions. Check out additional information that is preserved in the version of the Glottolog database used in <code>lingtypology</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(glottolog.original)</code></pre></div>
+<pre><code> [1] &quot;language&quot;           &quot;iso&quot;                &quot;glottocode&quot;        
+ [4] &quot;longitude&quot;          &quot;latitude&quot;           &quot;affiliation&quot;       
+ [7] &quot;area&quot;               &quot;alternate names&quot;    &quot;affiliation-HH&quot;    
+[10] &quot;country&quot;            &quot;dialects&quot;           &quot;language status&quot;   
+[13] &quot;language use&quot;       &quot;location&quot;           &quot;population numeric&quot;
+[16] &quot;typology&quot;           &quot;writing&quot;           </code></pre>
+<p>Using R functions for data manipulation you can create your own database for your purpose.</p>
+</div>
+<div id="using-base-functions" class="section level3">
+<h3>2.2 Using base functions</h3>
+<p>All functions introduced in the previous section are regular functions, so they can take the following objects as input:</p>
+<ul>
+<li>a regular string</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">iso.lang</span>(<span class="st">&quot;Adyghe&quot;</span>)</code></pre></div>
+<pre><code>Adyghe 
+ &quot;ady&quot; </code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lang.iso</span>(<span class="st">&quot;ady&quot;</span>)</code></pre></div>
+<pre><code>     ady 
+&quot;Adyghe&quot; </code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">country.lang</span>(<span class="st">&quot;Adyghe&quot;</span>)</code></pre></div>
+<pre><code>                                                                                                                 Adyghe 
+&quot;Turkey, United States, Israel, Australia, Egypt, Macedonia, France, Russia, Netherlands, Germany, Syria, Jordan, Iraq&quot; </code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lang.aff</span>(<span class="st">&quot;West Caucasian&quot;</span>)</code></pre></div>
+<pre><code>[1] &quot;Adyghe&quot;    &quot;Abkhaz&quot;    &quot;Abaza&quot;     &quot;Ubykh&quot;     &quot;Kabardian&quot;</code></pre>
+<ul>
+<li>a vector of strings</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">area.lang</span>(<span class="kw">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Aduge&quot;</span>))</code></pre></div>
+<pre><code>   Adyghe     Aduge 
+&quot;Eurasia&quot;  &quot;Africa&quot; </code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lang &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Russian&quot;</span>)
+<span class="kw">aff.lang</span>(lang)</code></pre></div>
+<pre><code>                                       Adyghe 
+&quot;North Caucasian, West Caucasian, Circassian&quot; 
+                                      Russian 
+                &quot;Indo-European, Slavic, East&quot; </code></pre>
+<ul>
+<li>other functions. For example, let’s try to get a vector of ISO codes for the Circassian languages</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">iso.lang</span>(<span class="kw">lang.aff</span>(<span class="st">&quot;Circassian&quot;</span>))</code></pre></div>
+<pre><code>   Adyghe Kabardian 
+    &quot;ady&quot;     &quot;kbd&quot; </code></pre>
+<p>The behavior of most functions is rather predictable, but the function <code>country.lang</code> has an additional feature. By default this function takes a vector of languages and returns a vector of countries. But if you set the argument <code>intersection = TRUE</code>, then the function returns a vector of countries where all languages from the query are spoken.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">country.lang</span>(<span class="kw">c</span>(<span class="st">&quot;Udi&quot;</span>, <span class="st">&quot;Laz&quot;</span>))</code></pre></div>
+<pre><code>                                                       Udi 
+               &quot;Russia, Georgia, Azerbaijan, Turkmenistan&quot; 
+                                                       Laz 
+&quot;Turkey, Georgia, France, United States, Germany, Belgium&quot; </code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">country.lang</span>(<span class="kw">c</span>(<span class="st">&quot;Udi&quot;</span>, <span class="st">&quot;Laz&quot;</span>), <span class="dt">intersection =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>[1] &quot;Georgia&quot;</code></pre>
+</div>
+<div id="spell-checker-look-carefully-at-warnings" class="section level3">
+<h3>2.3 Spell Checker: look carefully at warnings!</h3>
+<p>There are some functions that take country names as input. Unfortunately, some countries have alternative names. In order to save users the trouble of having to figure out the exact name stored in the database (for example <em>Ivory Coast</em> or <em>Cote d’Ivoire</em>), all official country names and standard abbreviations are stored in the database:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lang.country</span>(<span class="st">&quot;Cape Verde&quot;</span>)</code></pre></div>
+<pre><code>[1] &quot;Kabuverdianu&quot; &quot;Portuguese&quot;  </code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lang.country</span>(<span class="st">&quot;Cabo Verde&quot;</span>)</code></pre></div>
+<pre><code>[1] &quot;Kabuverdianu&quot; &quot;Portuguese&quot;  </code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">lang.country</span>(<span class="st">&quot;USA&quot;</span>))</code></pre></div>
+<pre><code>[1] &quot;Holikachuk&quot;       &quot;Hopi&quot;             &quot;Palewyami Yokuts&quot;
+[4] &quot;Finnish&quot;          &quot;Mbum&quot;             &quot;Lower Sorbian&quot;   </code></pre>
+<p>All functions which take a vector of languages are enriched with a kind of a spell checker. If a language from a query is absent in the database, functions return a warning message containing a set of candidates with the minimal Levenshtein distance to the language from the query.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">aff.lang</span>(<span class="st">&quot;Adyge&quot;</span>)</code></pre></div>
+<pre><code>Adyge 
+   NA </code></pre>
+</div>
+<div id="changes-in-the-glottolog-database" class="section level3">
+<h3>2.4 Changes in the glottolog database</h3>
+<p>Unfortunately, the <a href="http://glottolog.org/">Glottolog database (v. 2.7)</a> is not perfect for all my tasks, so I changed it a little bit. After <a href="https://github.com/ropensci/lingtypology/issues/1">Robert Forkel’s issue</a> I decided to add an argument <code>glottolog.source</code>, so that everybody has access to “original” and “modified” (by default) glottolog versions:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.glottolog</span>(<span class="kw">c</span>(<span class="st">&quot;Abkhaz&quot;</span>, <span class="st">&quot;Abkhazian&quot;</span>), <span class="dt">glottolog.source =</span> <span class="st">&quot;original&quot;</span>)</code></pre></div>
+<pre><code>[1] FALSE  TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.glottolog</span>(<span class="kw">c</span>(<span class="st">&quot;Abkhaz&quot;</span>, <span class="st">&quot;Abkhazian&quot;</span>), <span class="dt">glottolog.source =</span> <span class="st">&quot;modified&quot;</span>)</code></pre></div>
+<pre><code>[1]  TRUE FALSE</code></pre>
+<div class="parallax">
+
+</div>
+</div>
 </div>
 
 <br>

@@ -1,5 +1,5 @@
 ---
-title: "3. Glottolog functions"
+title: "2. Glottolog functions"
 author: "[G. Moroz](mailto:agricolamz@gmail.com) <br> Presentation link: goo.gl/PS2UD4"
 ---
 
@@ -30,5 +30,102 @@ knitr::opts_chunk$set(message = FALSE, warning = FALSE, comment=NA)
 
 <div class="parallax"></div>
 
-## 1. About Glottolog
+## 1. About [Glottolog](http://glottolog.org/)
 
+> _Glottolog provides a comprehensive catalogue of the world's languages, language families and dialects. It assigns a unique and stable identifier (the Glottocode) to (in principle) all languoids, i.e. all families, languages, and dialects._
+
+<div class="parallax"></div>
+
+## 2. Glottolog functions in `lingtypology`
+
+Don't forget to load a library:
+```{r}
+library("lingtypology")
+```
+
+
+### 2.1 Command name's syntax
+Most of the functions in `lingtypology` have the same syntax: **what you need.what you have**. Most of them are based on _language name_.
+
+* **aff.lang()** — get affiliation by language
+* **area.lang()** — get macro area by language
+* **country.lang()** — get country by language
+* **iso.lang()** — get ISO 639-3 code by language
+* **gltc.lang()** — get glottocode (identifier for a language in the Glottolog database) code by language
+* **lat.lang()** — get latitude by language
+* **long.lang()** — get longitude by language
+
+Some of them help to define a vector of languages.
+
+* **lang.aff()** — get language by affiliation
+* **lang.iso()** — get language by ISO 639-3 code
+* **lang.gltc()** — get language by glottocode
+
+Additionally there are some functions to convert glottocodes to ISO 639-3 codes and vice versa:
+
+* **gltc.iso()** — get glottocode by ISO 639-3 code
+* **iso.gltc()** — get ISO 639-3 code by glottocode
+
+[Glottolog database (v. 2.7)](http://glottolog.org/) provides `lingtypology` with language names, ISO codes, genealogical affiliation, macro area, countries, coordinates, and much information. This set of functions doesn't have a goal to cover all possible combinations of functions. Check out additional information that is preserved in the version of the Glottolog database used in `lingtypology`:
+
+```{r}
+names(glottolog.original)
+```
+
+Using R functions for data manipulation you can create your own database for your purpose.
+
+### 2.2 Using base functions
+All functions introduced in the previous section are regular functions, so they can take the following objects as input:
+
+* a regular string
+```{r}
+iso.lang("Adyghe")
+lang.iso("ady")
+country.lang("Adyghe")
+lang.aff("West Caucasian")
+```
+
+* a vector of strings
+```{r}
+area.lang(c("Adyghe", "Aduge"))
+lang <- c("Adyghe", "Russian")
+aff.lang(lang)
+```
+
+*  other functions. For example, let's try to get a vector of ISO codes for the Circassian languages
+```{r}
+iso.lang(lang.aff("Circassian"))
+```
+
+The behavior of most functions is rather predictable, but the function `country.lang`  has an additional feature. By default this function takes a vector of languages and returns a vector of countries.  But if you set the argument `intersection = TRUE`,  then the function returns a vector of countries where all languages from the query are spoken.
+```{r}
+country.lang(c("Udi", "Laz"))
+country.lang(c("Udi", "Laz"), intersection = TRUE)
+```
+
+### 2.3 Spell Checker: look carefully at warnings!
+There are some functions that take country names as input. Unfortunately, some countries have alternative names. In order to save users the trouble of having to figure out the exact name stored in the database (for example  _Ivory Coast_ or _Cote d'Ivoire_), all official country names and standard abbreviations are stored in the database:
+
+```{r}
+lang.country("Cape Verde")
+lang.country("Cabo Verde")
+head(lang.country("USA"))
+```
+
+All functions which take a vector of languages are enriched with a kind of a spell checker. If a language from a query is absent in the database, functions return a warning message containing a set of candidates with the minimal Levenshtein distance to the language from the query.
+
+```{r}
+aff.lang("Adyge")
+```
+
+### 2.4 Changes in the glottolog database
+Unfortunately, the [Glottolog database (v. 2.7)](http://glottolog.org/) is not perfect for all my tasks, so I changed it a little bit. After [Robert Forkel's issue](https://github.com/ropensci/lingtypology/issues/1) I decided to add an argument `glottolog.source`, so that everybody has access to "original" and "modified" (by default) glottolog versions:
+
+```{r}
+is.glottolog(c("Abkhaz", "Abkhazian"), glottolog.source = "original")
+```
+```{r}
+is.glottolog(c("Abkhaz", "Abkhazian"), glottolog.source = "modified")
+```
+
+<div class="parallax"></div>
