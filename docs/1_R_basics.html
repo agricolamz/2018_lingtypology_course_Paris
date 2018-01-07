@@ -523,9 +523,24 @@ new_df</code></pre></div>
 <div id="how-to-get-help-in-r" class="section level3">
 <h3>3.8 How to get help in R</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?nchar</code></pre></div>
+</div>
+</div>
+<div id="installing-packages" class="section level2">
+<h2>3.9 Installing packages</h2>
+<p>There are a lot of R packages for solving a lot of different problems. There are two sources:</p>
+<ul>
+<li>packages on CRAN are checked in multiple ways and should be stable</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;lingtypology&quot;</span>)</code></pre></div>
+<ul>
+<li>packages on GitHub are NOT checked and could contain anything, but it is the place where all package developers keep the last vertion of they work.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)
+devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;ropensci/lingtypology&quot;</span>)</code></pre></div>
+<p>After the package is installed you need to load the package using the following command:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;lingtypology&quot;</span>)</code></pre></div>
 <div class="parallax">
 
-</div>
 </div>
 </div>
 <div id="further-reading" class="section level2">

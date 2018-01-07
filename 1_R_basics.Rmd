@@ -134,8 +134,29 @@ sum(is.na(new_df))
 ```
 
 ### 3.8 How to get help in R
-```{r}
+```{r, eval = FALSE}
 ?nchar
+```
+
+## 3.9 Installing packages
+There are a lot of R packages for solving a lot of different problems. There are two sources:
+
+* packages on CRAN are checked in multiple ways and should be stable
+
+```{r, eval=FALSE}
+install.packages("lingtypology")
+```
+
+* packages on GitHub are NOT checked and could contain anything, but it is the place where all package developers keep the last vertion of they work.
+
+```{r, eval=FALSE}
+install.packages("devtools")
+devtools::install_github("ropensci/lingtypology")
+```
+
+After the package is installed you need to load the package using the following command:
+```{r, eval=FALSE}
+library("lingtypology")
 ```
 
 <div class="parallax"></div>
