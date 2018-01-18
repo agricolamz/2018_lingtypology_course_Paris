@@ -24,7 +24,6 @@ knitr::opts_chunk$set(message = FALSE, warning = FALSE, comment=NA)
     background-size: auto;
 }
 </style>
-
 <div class="parallax"></div>
 
 ## 0. Prerequisites:
@@ -139,7 +138,7 @@ sum(is.na(new_df))
 ```
 
 ## 3.9 Installing packages
-There are a lot of R packages for solving a lot of different problems. There are two sources:
+There are a lot of R packages for solving a lot of different problems. There are two way for install them (you need an internet connection):
 
 * packages on CRAN are checked in multiple ways and should be stable
 
@@ -159,9 +158,41 @@ After the package is installed you need to load the package using the following 
 library("lingtypology")
 ```
 
+There is a nice picture from [Phillips N. D. (2017) YaRrr! The Pirate’s Guide to R](https://bookdown.org/ndphillips/YaRrr/):
+
+![](package.png)
+
+
 <div class="parallax"></div>
 
-## 4. Further reading
+## 4. Tasks
+### 4.1 How many villages in the dataset?
+Instal `lingtypology` package and find in help page how many rows in the `circassian` dataset. You could alse use `nrow()` function.
+
+<form name="FormOne" action="/action_page.php" onsubmit="return validateFormOne()" method="post">
+<input type="text" name="answerOne">
+<input type="submit" value="check">
+</form>
+
+### 4.2 Which one?
+In the `circassian` dataset find out the name of the 86. village.
+
+<form name="FormTwo" action="/action_page.php" onsubmit="return validateFormTwo()" method="post">
+<input type="text" name="answerTwo">
+<input type="submit" value="check">
+</form>
+
+### 4.3 What is the size?
+Write the `circassian` dataset to your computer and use `file.info()` function to figure out how many bites in the result file.
+
+<form name="FormThree" action="/action_page.php" onsubmit="return validateFormThree()" method="post">
+<input type="text" name="answerThree">
+<input type="submit" value="check">
+</form>
+
+<div class="parallax"></div>
+
+## 5. Further reading
 
 There are a lot of books, articles, tutorials and online courses about R. Here is some of them:
 
@@ -171,3 +202,37 @@ There are a lot of books, articles, tutorials and online courses about R. Here i
 * [book _"Statistics for Linguistics with R"_ by S. Gries](https://www.amazon.com/dp/3110307286)
 
 <div class="parallax"></div>
+
+
+<script>
+function validateFormOne() {
+    var x = document.forms["FormOne"]["answerOne"].value;
+    if (x != "157") {
+        alert("I have another answer...");
+        return false;
+    } else {
+        alert("Exactly!");
+        return false;
+    }
+}
+function validateFormTwo() {
+    var y = document.forms["FormTwo"]["answerTwo"].value;
+    if (y != "Vochepshiy") {
+        alert("I have another answer...");
+        return false;
+    } else {
+        alert("Exactly!");
+        return false;
+    }
+}
+function validateFormThree() {
+    var z = document.forms["FormThree"]["answerThree"].value;
+    if (z != "9315") {
+        alert("I have another answer...");
+        return false;
+    } else {
+        alert("Exactly!");
+        return false;
+    }
+}
+</script>

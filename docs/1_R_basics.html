@@ -527,7 +527,7 @@ new_df</code></pre></div>
 </div>
 <div id="installing-packages" class="section level2">
 <h2>3.9 Installing packages</h2>
-<p>There are a lot of R packages for solving a lot of different problems. There are two sources:</p>
+<p>There are a lot of R packages for solving a lot of different problems. There are two way for install them (you need an internet connection):</p>
 <ul>
 <li>packages on CRAN are checked in multiple ways and should be stable</li>
 </ul>
@@ -539,12 +539,44 @@ new_df</code></pre></div>
 devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;ropensci/lingtypology&quot;</span>)</code></pre></div>
 <p>After the package is installed you need to load the package using the following command:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;lingtypology&quot;</span>)</code></pre></div>
+<p>There is a nice picture from <a href="https://bookdown.org/ndphillips/YaRrr/">Phillips N. D. (2017) YaRrr! The Pirate’s Guide to R</a>:</p>
+<div class="figure">
+<img src="package.png" />
+
+</div>
 <div class="parallax">
 
 </div>
 </div>
+<div id="tasks" class="section level2">
+<h2>4. Tasks</h2>
+<div id="how-many-villages-in-the-dataset" class="section level3">
+<h3>4.1 How many villages in the dataset?</h3>
+<p>Instal <code>lingtypology</code> package and find in help page how many rows in the <code>circassian</code> dataset. You could alse use <code>nrow()</code> function.</p>
+<form name="FormOne" action="/action_page.php" onsubmit="return validateFormOne()" method="post">
+<input type="text" name="answerOne"> <input type="submit" value="check">
+</form>
+</div>
+<div id="which-one" class="section level3">
+<h3>4.2 Which one?</h3>
+<p>In the <code>circassian</code> dataset find out the name of the 86. village.</p>
+<form name="FormTwo" action="/action_page.php" onsubmit="return validateFormTwo()" method="post">
+<input type="text" name="answerTwo"> <input type="submit" value="check">
+</form>
+</div>
+<div id="what-is-the-size" class="section level3">
+<h3>4.3 What is the size?</h3>
+<p>Write the <code>circassian</code> dataset to your computer and use <code>file.info()</code> function to figure out how many bites in the result file.</p>
+<form name="FormThree" action="/action_page.php" onsubmit="return validateFormThree()" method="post">
+<input type="text" name="answerThree"> <input type="submit" value="check">
+</form>
+<div class="parallax">
+
+</div>
+</div>
+</div>
 <div id="further-reading" class="section level2">
-<h2>4. Further reading</h2>
+<h2>5. Further reading</h2>
 <p>There are a lot of books, articles, tutorials and online courses about R. Here is some of them:</p>
 <ul>
 <li><a href="http://r4ds.had.co.nz/">book <em>“R for Data Science”</em> by G. Grolemund and H. Wickham</a></li>
@@ -555,6 +587,38 @@ devtools<span class="op">::</span><span class="kw">install_github</span>(<span c
 <div class="parallax">
 
 </div>
+<script>
+function validateFormOne() {
+    var x = document.forms["FormOne"]["answerOne"].value;
+    if (x != "157") {
+        alert("I have another answer...");
+        return false;
+    } else {
+        alert("Exactly!");
+        return false;
+    }
+}
+function validateFormTwo() {
+    var y = document.forms["FormTwo"]["answerTwo"].value;
+    if (y != "Vochepshiy") {
+        alert("I have another answer...");
+        return false;
+    } else {
+        alert("Exactly!");
+        return false;
+    }
+}
+function validateFormThree() {
+    var z = document.forms["FormThree"]["answerThree"].value;
+    if (z != "9315") {
+        alert("I have another answer...");
+        return false;
+    } else {
+        alert("Exactly!");
+        return false;
+    }
+}
+</script>
 </div>
 
 <br>
