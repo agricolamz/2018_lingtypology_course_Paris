@@ -107,16 +107,14 @@ my_df$is.vowel[2]
 ### 3.5 Reading files to R
 We can read to R a dataset about Numeral Classifiers from [AUTOTYP database](https://github.com/autotyp/autotyp-data).
 ```{r}
-new_df <- read.csv("https://raw.githubusercontent.com/autotyp/autotyp-data/master/data/Numeral_classifiers.csv",
-                   stringsAsFactors = FALSE)
+new_df <- read.csv("https://raw.githubusercontent.com/autotyp/autotyp-data/master/data/Numeral_classifiers.csv")
 new_df
 ```
 
 It could be also a file on your computer, just provide a whole path to the file. Windows users need to change backslashes `\` to slashes `/`.
 
 ```{r, eval = FALSE}
-new_df_2 <- read.csv("/home/agricolamz/my_file.csv",
-                     stringsAsFactors = FALSE)
+new_df_2 <- read.csv("/home/agricolamz/my_file.csv")
 ```
 
 ### 3.6 Writing files from R
@@ -168,7 +166,7 @@ There is a nice picture from [Phillips N. D. (2017) YaRrr! The Pirate’s Guide 
 <div class="parallax"></div>
 
 ## 4. Tasks
-### 4.1 How many villages in the dataset?
+### 4.1
 Install `lingtypology` package and find, how many rows in the `circassian` dataset.
 
 <form name="FormOne" onsubmit="return validateFormOne()" method="post">
@@ -176,7 +174,7 @@ Install `lingtypology` package and find, how many rows in the `circassian` datas
 <input type="submit" value="check">
 </form>
 
-### 4.2 Which one?
+### 4.2
 In the `circassian` dataset find out the name of the 86. village.
 
 <form name="FormTwo" onsubmit="return validateFormTwo()" method="post">
@@ -184,7 +182,7 @@ In the `circassian` dataset find out the name of the 86. village.
 <input type="submit" value="check">
 </form>
 
-### 4.3 What is the size?
+### 4.3
 Write the `circassian` dataset to your computer and use `file.info()` function to figure out how many bites in the result file.
 
 <form name="FormThree" onsubmit="return validateFormThree()" method="post">

@@ -304,6 +304,9 @@ div.tocify {
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="1_R_basics.html">1. R basics</a>
 </li>
@@ -313,12 +316,6 @@ div.tocify {
 <li>
   <a href="3_maps.html">3. map creation</a>
 </li>
-<li>
-  <a href="4_typological_databases.html">4. typolofical databases</a>
-</li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -474,8 +471,7 @@ my_df</code></pre></div>
 <div id="reading-files-to-r" class="section level3">
 <h3>3.5 Reading files to R</h3>
 <p>We can read to R a dataset about Numeral Classifiers from <a href="https://github.com/autotyp/autotyp-data">AUTOTYP database</a>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/autotyp/autotyp-data/master/data/Numeral_classifiers.csv&quot;</span>,
-                   <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/autotyp/autotyp-data/master/data/Numeral_classifiers.csv&quot;</span>)
 new_df</code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
@@ -483,8 +479,7 @@ new_df</code></pre></div>
   </script>
 </div>
 <p>It could be also a file on your computer, just provide a whole path to the file. Windows users need to change backslashes <code>\</code> to slashes <code>/</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_df_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;/home/agricolamz/my_file.csv&quot;</span>,
-                     <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_df_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;/home/agricolamz/my_file.csv&quot;</span>)</code></pre></div>
 </div>
 <div id="writing-files-from-r" class="section level3">
 <h3>3.6 Writing files from R</h3>
@@ -554,22 +549,22 @@ devtools<span class="op">::</span><span class="kw">install_github</span>(<span c
 </div>
 <div id="tasks" class="section level2">
 <h2>4. Tasks</h2>
-<div id="how-many-villages-in-the-dataset" class="section level3">
-<h3>4.1 How many villages in the dataset?</h3>
+<div id="section" class="section level3">
+<h3>4.1</h3>
 <p>Install <code>lingtypology</code> package and find, how many rows in the <code>circassian</code> dataset.</p>
 <form name="FormOne" onsubmit="return validateFormOne()" method="post">
 <input type="text" name="answerOne"> <input type="submit" value="check">
 </form>
 </div>
-<div id="which-one" class="section level3">
-<h3>4.2 Which one?</h3>
+<div id="section-1" class="section level3">
+<h3>4.2</h3>
 <p>In the <code>circassian</code> dataset find out the name of the 86. village.</p>
 <form name="FormTwo" onsubmit="return validateFormTwo()" method="post">
 <input type="text" name="answerTwo"> <input type="submit" value="check">
 </form>
 </div>
-<div id="what-is-the-size" class="section level3">
-<h3>4.3 What is the size?</h3>
+<div id="section-2" class="section level3">
+<h3>4.3</h3>
 <p>Write the <code>circassian</code> dataset to your computer and use <code>file.info()</code> function to figure out how many bites in the result file.</p>
 <form name="FormThree" onsubmit="return validateFormThree()" method="post">
 <input type="text" name="answerThree"> <input type="submit" value="check">

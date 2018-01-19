@@ -4,13 +4,13 @@ author: "[G. Moroz](mailto:agricolamz@gmail.com) <br> Presentation link: goo.gl/
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(message = FALSE, warning = FALSE, comment=NA)
+knitr::opts_chunk$set(message = FALSE, warning = FALSE, comment=NA, fig.width=7.5, fig.height=3.4)
 ```
 
 <style>
 .parallax {
     /* The image used */
-    background-image: url("logo.png");
+    background-image: url("lingtypology.png");
 
     /* Set a specific height */
     min-height: 350px; 
@@ -30,4 +30,232 @@ knitr::opts_chunk$set(message = FALSE, warning = FALSE, comment=NA)
 
 <div class="parallax"></div>
 
-## S
+Don't forget to load a library:
+```{r}
+library("lingtypology")
+```
+
+## 1. Base map
+The most important part of the `lingtypology` package is the function `map.feature`:
+```{r}
+map.feature(c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"))
+```
+
+<div class="parallax"></div>
+
+## 2. Set features
+The goal of this package is to allow linguists to map language features. A list of languages and correspondent features can be stored in a `data.frame` as follows:
+```{r}
+df <- data.frame(language = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
+                 features = c("polysynthetic", "polysynthetic", "fusional", "fusional", "fusional"))
+df
+```
+
+Now we can draw a map:
+```{r}
+map.feature(languages = df$language,
+            features = df$features)
+```
+
+There are several types of variables in R and `map.feature` works differently depending on the variable type. I will use a build in data set `ejective_and_n_consonants` that contains 19 languages from [UPSyD database](http://www.lapsyd.ddl.ish-lyon.cnrs.fr/lapsyd/). This dataset have three variables: the categorical variable `ejectives` indicates whether some language has any ejective sound, numeric variables `consonants` and `vowels` that contains information about the number of consonants and vowels (based on UPSyD database). We can create two maps with categorical variable and with numeric variable:
+
+```{r}
+map.feature(languages = ejective_and_n_consonants$language,
+            features = ejective_and_n_consonants$ejectives) # categorical
+map.feature(languages = ejective_and_n_consonants$language,
+            features = ejective_and_n_consonants$consonants) # numeric
+```
+
+There are two possible ways to show the World map: with the Atlantic sea or with the Pacific sea in the middle. If you don't need default Pacific view use the `map.orientation` parameter(thanks @languageSpaceLabs and @tzakharko for that idea):
+```{r}
+map.feature(languages = ejective_and_n_consonants$language,
+            features = ejective_and_n_consonants$consonants,
+            map.orientation = "Atlantic")
+```
+
+<div class="parallax"></div>
+
+## 3. Set labels
+An alternative way to add some short text to a map is to use the `label` option.
+```{r}
+map.feature(languages = df$language,
+            features = df$features,
+            label = df$language)
+```
+
+There are some additional arguments for customization: `label.fsize` for setting font size, `label.position` for controlling the label position, and `label.hide` to control the appearance of the label: if `TRUE`, the labels are displayed on mouse over(as on the previous map), if `FALSE`, the labels are always displayed (as on the next map).
+
+```{r}
+map.feature(languages = df$language, 
+            features = df$features,
+            label = df$language,
+            label.fsize = 20,
+            label.position = "left",
+            label.hide = FALSE)
+```
+
+<div class="parallax"></div>
+
+## 4. Set pop-up boxes
+Sometimes it is a good idea to add some additional information (e.g. language affiliation, references or even examples) to pop-up boxes that appear when points are clicked. In order to do so, first of all we need to create an extra vector of strings in our dataframe:
+```{r}
+df$popup <- aff.lang(df$language)
+```
+
+The function `aff.lang()` creates a vector of genealogical affiliations that can be easily mapped:
+```{r}
+map.feature(languages = df$language, 
+            features = df$features, 
+            popup = df$popup)
+```
+
+Pop-up strings can contain HTML tags, so it is easy to insert a link, a couple of lines, a table or even a video and sound. Here is how pop-up boxes can demonstrate language examples:
+```{r}
+# change a df$popup vector
+df$popup <- c("sɐ s-ɐ-k'ʷɐ <br> 1sg 1sg.abs-dyn-go <br> 'I go'",
+              "sɐ s-o-k'ʷɐ <br> 1sg 1sg.abs-dyn-go <br> 'I go'",
+              "id-ę <br> go-1sg.npst <br> 'I go'",
+              "ya id-u <br> 1sg go-1sg.npst <br> 'I go'",
+              "id-a <br> go-1sg.prs <br> 'I go'")
+
+# create a map
+map.feature(languages = df$language,
+            features = df$features,
+            popup = df$popup)
+```
+
+How to say _moon_ in Sign Languages? Here is an example:
+```{r, echo=FALSE}
+# Create a dataframe with links to video
+sign_df <- data.frame(languages = c("American Sign Language", "Russian Sign Language", "French Sign Language"),
+                      popup = c("https://media.spreadthesign.com/video/mp4/13/48600.mp4", "https://media.spreadthesign.com/video/mp4/12/17639.mp4", "https://media.spreadthesign.com/video/mp4/10/17638.mp4"))
+
+# Change popup to an HTML code
+sign_df$popup <- paste("<video width='200' height='150' controls> <source src='",
+                       as.character(sign_df$popup),
+                       "' type='video/mp4'></video>", sep = "")
+# create a map
+map.feature(languages = sign_df$languages, popup = sign_df$popup)
+```
+
+<div class="parallax"></div>
+
+## 5. Set shapes
+For some papers it is not possible to use colors for destinguishing features. In that cases it is posible to use `shape` argument:
+```{r}
+map.feature(languages = ejective_and_n_consonants$language,
+            features = ejective_and_n_consonants$ejectives,
+            shape = TRUE)
+```
+
+It is possible to provide a vector with corresponding shapes:
+```{r}
+map.feature(languages = ejective_and_n_consonants$language,
+            features = ejective_and_n_consonants$ejectives,
+            label = ejective_and_n_consonants$language,
+            shape = c("–", "+"))
+```
+
+<div class="parallax"></div>
+
+## 6. Set coordinates
+You can set your own coordinates using the arguments `latitude` and `longitude`. It is important to note, that `lingtypology` works only with decimal degrees (something like this: 0.1), not with degrees, minutes and seconds (something like this: 0° 06′ 0″). I will illustrate this with the dataset `circassian` built into the `lingtypology` package. This dataset comes from fieldwork collected during several expeditions in the period 2011-2016 and contains a list of Circassian villages:
+```{r}
+head(circassian)
+```
+
+In this dataframe you can find variables `latitude` and `longitude` that could be used:
+```{r}
+map.feature(languages = circassian$language,
+            features = circassian$dialect,
+            label = circassian$village,
+            latitude = circassian$latitude,
+            longitude = circassian$longitude)
+```
+
+<div class="parallax"></div>
+
+## 7. Set layouts
+It is possible to use different tiles on the same map using the `tile` argument. For more tiles look [here](https://leaflet-extras.github.io/leaflet-providers/preview/index.html).
+```{r}
+map.feature(languages = circassian$language,
+            features = circassian$dialect,
+            label = circassian$village,
+            latitude = circassian$latitude,
+            longitude = circassian$longitude,
+            tile = "OpenTopoMap")
+```
+
+It is possible to use different map tiles on the same map. Just add a vector with tiles.
+```{r}
+map.feature(languages = circassian$language,
+            features = circassian$dialect,
+            label = circassian$village,
+            latitude = circassian$latitude,
+            longitude = circassian$longitude,
+            tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"))
+```
+
+It is possible to rename tiles using the `tile.name` argument.
+```{r}
+map.feature(languages = circassian$language,
+            features = circassian$dialect,
+            label = circassian$village,
+            latitude = circassian$latitude,
+            longitude = circassian$longitude,
+            tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"),
+            tile.name = c("b & w", "colored"))
+```
+
+<div class="parallax"></div>
+
+## 8. Customizing legends
+By default the legend appears in the top right corner. If there are stroke features, two legends are generated. There are additional arguments that control the appearence and the title of the legends.
+```{r}
+map.feature(languages = circassian$language,
+            features = circassian$dialect,
+            latitude = circassian$latitude,
+            longitude = circassian$longitude,
+            legend = FALSE)
+
+map.feature(languages = circassian$language,
+            features = circassian$dialect,
+            latitude = circassian$latitude,
+            longitude = circassian$longitude,
+            title = "Circassian dialects")
+```
+The arguments `legend.position` and `stroke.legend.position` allow you to change a legend's position using "topright", "bottomright", "bottomleft" or"topleft" strings.
+
+<div class="parallax"></div>
+
+## 9. Tasks
+### 9.1
+Create a map with Chukchi, French, Khana and Nii and add labels that don't disappear:
+```{r, echo = FALSE}
+map.feature(languages = c("Chukchi", "French", "Khana", "Nii"),
+            label = c("Chukchi", "French", "Khana", "Nii"),
+            label.hide = FALSE)
+```
+
+### 9.2
+Create a map of the Bodish and add minimap with argument `minimap = TRUE`:
+```{r, echo = FALSE}
+map.feature(languages = lang.aff("Bodish"),
+            minimap = TRUE)
+```
+
+### 9.3
+Download [80. feature from WALS](wals.info/feature/80A) using `wals.feature("80a")` and draw a map:
+```{r, echo = FALSE}
+df <- wals.feature("80a")
+map.feature(languages = df$language,
+            features = df$`80a`,
+            label = df$language,
+            title = "Verbal Number and Suppletion")
+```
+
+<div class="parallax"></div>
+
+## 10. Further reading
+
+The whole `lingtypology` tutorial is available [here](https://ropensci.github.io/lingtypology/).

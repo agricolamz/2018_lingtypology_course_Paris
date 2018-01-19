@@ -1,14 +1,12 @@
 name: ''
 navbar:
-  left:
+  right:
   - text: 1. R basics
     href: 1_R_basics.html
   - text: 2. glottolog functions
     href: 2_glottolog.html
   - text: 3. map creation
     href: 3_maps.html
-  - text: 4. typolofical databases
-    href: 4_typological_databases.html
 output_dir: docs
 output:
   html_document:
