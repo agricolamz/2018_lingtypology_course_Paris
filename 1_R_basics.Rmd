@@ -89,6 +89,8 @@ my_df <- data.frame(latin = c("a", "b", "c"),
                     is.vowel = c(TRUE, FALSE, FALSE),
                     stringsAsFactors = FALSE)
 my_df
+nrow(my_df)
+ncol(my_df)
 ```
 
 ### 3.4 Indexing
@@ -167,9 +169,9 @@ There is a nice picture from [Phillips N. D. (2017) YaRrr! The Pirate’s Guide 
 
 ## 4. Tasks
 ### 4.1 How many villages in the dataset?
-Instal `lingtypology` package and find in help page how many rows in the `circassian` dataset. You could alse use `nrow()` function.
+Install `lingtypology` package and find, how many rows in the `circassian` dataset.
 
-<form name="FormOne" action="/action_page.php" onsubmit="return validateFormOne()" method="post">
+<form name="FormOne" onsubmit="return validateFormOne()" method="post">
 <input type="text" name="answerOne">
 <input type="submit" value="check">
 </form>
@@ -177,7 +179,7 @@ Instal `lingtypology` package and find in help page how many rows in the `circas
 ### 4.2 Which one?
 In the `circassian` dataset find out the name of the 86. village.
 
-<form name="FormTwo" action="/action_page.php" onsubmit="return validateFormTwo()" method="post">
+<form name="FormTwo" onsubmit="return validateFormTwo()" method="post">
 <input type="text" name="answerTwo">
 <input type="submit" value="check">
 </form>
@@ -185,7 +187,7 @@ In the `circassian` dataset find out the name of the 86. village.
 ### 4.3 What is the size?
 Write the `circassian` dataset to your computer and use `file.info()` function to figure out how many bites in the result file.
 
-<form name="FormThree" action="/action_page.php" onsubmit="return validateFormThree()" method="post">
+<form name="FormThree" onsubmit="return validateFormThree()" method="post">
 <input type="text" name="answerThree">
 <input type="submit" value="check">
 </form>
@@ -201,14 +203,11 @@ There are a lot of books, articles, tutorials and online courses about R. Here i
 * [book _"How to do Linguistics with R"_  by N. Levshina](https://benjamins.com/#catalog/books/z.195/main)
 * [book _"Statistics for Linguistics with R"_ by S. Gries](https://www.amazon.com/dp/3110307286)
 
-<div class="parallax"></div>
-
-
 <script>
 function validateFormOne() {
     var x = document.forms["FormOne"]["answerOne"].value;
     if (x != "157") {
-        alert("I have another answer...");
+        alert("I have a different answer...");
         return false;
     } else {
         alert("Exactly!");
@@ -218,7 +217,7 @@ function validateFormOne() {
 function validateFormTwo() {
     var y = document.forms["FormTwo"]["answerTwo"].value;
     if (y != "Vochepshiy") {
-        alert("I have another answer...");
+        alert("I have a different answer...");
         return false;
     } else {
         alert("Exactly!");
@@ -228,7 +227,7 @@ function validateFormTwo() {
 function validateFormThree() {
     var z = document.forms["FormThree"]["answerThree"].value;
     if (z != "9315") {
-        alert("I have another answer...");
+        alert("I have a different answer...");
         return false;
     } else {
         alert("Exactly!");

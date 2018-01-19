@@ -445,6 +445,10 @@ my_df</code></pre></div>
 {"columns":[{"label":["latin"],"name":[1],"type":["chr"],"align":["left"]},{"label":["cyrillic"],"name":[2],"type":["chr"],"align":["left"]},{"label":["greek"],"name":[3],"type":["chr"],"align":["left"]},{"label":["numbers"],"name":[4],"type":["int"],"align":["right"]},{"label":["is.vowel"],"name":[5],"type":["lgl"],"align":["right"]}],"data":[{"1":"a","2":"а","3":"α","4":"1","5":"TRUE"},{"1":"b","2":"б","3":"β","4":"2","5":"FALSE"},{"1":"c","2":"в","3":"γ","4":"3","5":"FALSE"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">nrow</span>(my_df)</code></pre></div>
+<pre><code>[1] 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ncol</span>(my_df)</code></pre></div>
+<pre><code>[1] 5</code></pre>
 </div>
 <div id="indexing" class="section level3">
 <h3>3.4 Indexing</h3>
@@ -552,22 +556,22 @@ devtools<span class="op">::</span><span class="kw">install_github</span>(<span c
 <h2>4. Tasks</h2>
 <div id="how-many-villages-in-the-dataset" class="section level3">
 <h3>4.1 How many villages in the dataset?</h3>
-<p>Instal <code>lingtypology</code> package and find in help page how many rows in the <code>circassian</code> dataset. You could alse use <code>nrow()</code> function.</p>
-<form name="FormOne" action="/action_page.php" onsubmit="return validateFormOne()" method="post">
+<p>Install <code>lingtypology</code> package and find, how many rows in the <code>circassian</code> dataset.</p>
+<form name="FormOne" onsubmit="return validateFormOne()" method="post">
 <input type="text" name="answerOne"> <input type="submit" value="check">
 </form>
 </div>
 <div id="which-one" class="section level3">
 <h3>4.2 Which one?</h3>
 <p>In the <code>circassian</code> dataset find out the name of the 86. village.</p>
-<form name="FormTwo" action="/action_page.php" onsubmit="return validateFormTwo()" method="post">
+<form name="FormTwo" onsubmit="return validateFormTwo()" method="post">
 <input type="text" name="answerTwo"> <input type="submit" value="check">
 </form>
 </div>
 <div id="what-is-the-size" class="section level3">
 <h3>4.3 What is the size?</h3>
 <p>Write the <code>circassian</code> dataset to your computer and use <code>file.info()</code> function to figure out how many bites in the result file.</p>
-<form name="FormThree" action="/action_page.php" onsubmit="return validateFormThree()" method="post">
+<form name="FormThree" onsubmit="return validateFormThree()" method="post">
 <input type="text" name="answerThree"> <input type="submit" value="check">
 </form>
 <div class="parallax">
@@ -584,14 +588,11 @@ devtools<span class="op">::</span><span class="kw">install_github</span>(<span c
 <li><a href="https://benjamins.com/#catalog/books/z.195/main">book <em>“How to do Linguistics with R”</em> by N. Levshina</a></li>
 <li><a href="https://www.amazon.com/dp/3110307286">book <em>“Statistics for Linguistics with R”</em> by S. Gries</a></li>
 </ul>
-<div class="parallax">
-
-</div>
 <script>
 function validateFormOne() {
     var x = document.forms["FormOne"]["answerOne"].value;
     if (x != "157") {
-        alert("I have another answer...");
+        alert("I have a different answer...");
         return false;
     } else {
         alert("Exactly!");
@@ -601,7 +602,7 @@ function validateFormOne() {
 function validateFormTwo() {
     var y = document.forms["FormTwo"]["answerTwo"].value;
     if (y != "Vochepshiy") {
-        alert("I have another answer...");
+        alert("I have a different answer...");
         return false;
     } else {
         alert("Exactly!");
@@ -611,7 +612,7 @@ function validateFormTwo() {
 function validateFormThree() {
     var z = document.forms["FormThree"]["answerThree"].value;
     if (z != "9315") {
-        alert("I have another answer...");
+        alert("I have a different answer...");
         return false;
     } else {
         alert("Exactly!");

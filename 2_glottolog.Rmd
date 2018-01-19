@@ -4,13 +4,13 @@ author: "[G. Moroz](mailto:agricolamz@gmail.com) <br> Presentation link: goo.gl/
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(message = FALSE, warning = FALSE, comment=NA)
+knitr::opts_chunk$set(message = FALSE, comment=NA)
 ```
 
 <style>
 .parallax {
     /* The image used */
-    background-image: url("logo.png");
+    background-image: url("glottolog.png");
 
     /* Set a specific height */
     min-height: 350px; 
@@ -34,9 +34,7 @@ knitr::opts_chunk$set(message = FALSE, warning = FALSE, comment=NA)
 
 > _Glottolog provides a comprehensive catalogue of the world's languages, language families and dialects. It assigns a unique and stable identifier (the Glottocode) to (in principle) all languoids, i.e. all families, languages, and dialects._
 
-<div class="parallax"></div>
-
-## 2. Glottolog functions in `lingtypology`
+## 2. Glottolog functions
 
 Don't forget to load a library:
 ```{r}
@@ -129,3 +127,59 @@ is.glottolog(c("Abkhaz", "Abkhazian"), glottolog.source = "modified")
 ```
 
 <div class="parallax"></div>
+
+## 3. Tasks
+### 3.1 Celtic languages
+How many Celtic languages in the database?
+<form name="FormOne" onsubmit="return validateFormOne()" method="post">
+<input type="text" name="answerOne">
+<input type="submit" value="check">
+</form>
+
+### 3.2 Austronesian languages
+How many Austronesian languages in the database?
+<form name="FormTwo" onsubmit="return validateFormTwo()" method="post">
+<input type="text" name="answerTwo">
+<input type="submit" value="check">
+</form>
+
+
+### 3.3 Russian and Standard Arabic
+What is the country where, according the database, Russian and Standard Arabic are spoken?
+<form name="FormThree" onsubmit="return validateFormThree()" method="post">
+<input type="text" name="answerThree">
+<input type="submit" value="check">
+</form>
+
+<script>
+function validateFormOne() {
+    var x = document.forms["FormOne"]["answerOne"].value;
+    if (x != "6") {
+        alert("I have a different answer...");
+        return false;
+    } else {
+        alert("Exactly!");
+        return false;
+    }
+}
+function validateFormTwo() {
+    var y = document.forms["FormTwo"]["answerTwo"].value;
+    if (y != "1247") {
+        alert("I have a different answer...");
+        return false;
+    } else {
+        alert("Exactly!");
+        return false;
+    }
+}
+function validateFormThree() {
+    var z = document.forms["FormThree"]["answerThree"].value;
+    if (z != "Israel") {
+        alert("I have a different answer...");
+        return false;
+    } else {
+        alert("Exactly!");
+        return false;
+    }
+}
+</script>

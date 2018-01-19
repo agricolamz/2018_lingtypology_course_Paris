@@ -339,7 +339,7 @@ div.tocify {
 <style>
 .parallax {
     /* The image used */
-    background-image: url("logo.png");
+    background-image: url("glottolog.png");
 
     /* Set a specific height */
     min-height: 350px; 
@@ -364,12 +364,9 @@ div.tocify {
 <blockquote>
 <p><em>Glottolog provides a comprehensive catalogue of the world’s languages, language families and dialects. It assigns a unique and stable identifier (the Glottocode) to (in principle) all languoids, i.e. all families, languages, and dialects.</em></p>
 </blockquote>
-<div class="parallax">
-
 </div>
-</div>
-<div id="glottolog-functions-in-lingtypology" class="section level2">
-<h2>2. Glottolog functions in <code>lingtypology</code></h2>
+<div id="glottolog-functions" class="section level2">
+<h2>2. Glottolog functions</h2>
 <p>Don’t forget to load a library:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;lingtypology&quot;</span>)</code></pre></div>
 <div id="command-names-syntax" class="section level3">
@@ -461,6 +458,8 @@ div.tocify {
 [4] &quot;Finnish&quot;          &quot;Mbum&quot;             &quot;Lower Sorbian&quot;   </code></pre>
 <p>All functions which take a vector of languages are enriched with a kind of a spell checker. If a language from a query is absent in the database, functions return a warning message containing a set of candidates with the minimal Levenshtein distance to the language from the query.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">aff.lang</span>(<span class="st">&quot;Adyge&quot;</span>)</code></pre></div>
+<pre><code>Warning: Language Adyge is absent in our version of the Glottolog database.
+Did you mean Adyghe, Aduge?</code></pre>
 <pre><code>Adyge 
    NA </code></pre>
 </div>
@@ -474,6 +473,62 @@ div.tocify {
 <div class="parallax">
 
 </div>
+</div>
+</div>
+<div id="tasks" class="section level2">
+<h2>3. Tasks</h2>
+<div id="celtic-languages" class="section level3">
+<h3>3.1 Celtic languages</h3>
+How many Celtic languages in the database?
+<form name="FormOne" onsubmit="return validateFormOne()" method="post">
+<input type="text" name="answerOne"> <input type="submit" value="check">
+</form>
+</div>
+<div id="austronesian-languages" class="section level3">
+<h3>3.2 Austronesian languages</h3>
+How many Austronesian languages in the database?
+<form name="FormTwo" onsubmit="return validateFormTwo()" method="post">
+<input type="text" name="answerTwo"> <input type="submit" value="check">
+</form>
+</div>
+<div id="russian-and-standard-arabic" class="section level3">
+<h3>3.3 Russian and Standard Arabic</h3>
+What is the country where, according the database, Russian and Standard Arabic are spoken?
+<form name="FormThree" onsubmit="return validateFormThree()" method="post">
+<input type="text" name="answerThree"> <input type="submit" value="check">
+</form>
+<script>
+function validateFormOne() {
+    var x = document.forms["FormOne"]["answerOne"].value;
+    if (x != "6") {
+        alert("I have a different answer...");
+        return false;
+    } else {
+        alert("Exactly!");
+        return false;
+    }
+}
+function validateFormTwo() {
+    var y = document.forms["FormTwo"]["answerTwo"].value;
+    if (y != "1247") {
+        alert("I have a different answer...");
+        return false;
+    } else {
+        alert("Exactly!");
+        return false;
+    }
+}
+function validateFormThree() {
+    var z = document.forms["FormThree"]["answerThree"].value;
+    if (z != "Israel") {
+        alert("I have a different answer...");
+        return false;
+    } else {
+        alert("Exactly!");
+        return false;
+    }
+}
+</script>
 </div>
 </div>
 
