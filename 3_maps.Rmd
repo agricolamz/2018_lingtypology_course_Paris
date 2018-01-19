@@ -193,7 +193,7 @@ map.feature(languages = circassian$language,
             label = circassian$village,
             latitude = circassian$latitude,
             longitude = circassian$longitude,
-            tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"))
+            tile = c("OpenStreetMap.BlackAndWhite", "OpenTopoMap"))
 ```
 
 It is possible to rename tiles using the `tile.name` argument.
@@ -203,7 +203,7 @@ map.feature(languages = circassian$language,
             label = circassian$village,
             latitude = circassian$latitude,
             longitude = circassian$longitude,
-            tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"),
+            tile = c("OpenStreetMap.BlackAndWhite", "OpenTopoMap"),
             tile.name = c("b & w", "colored"))
 ```
 
@@ -238,14 +238,14 @@ map.feature(languages = c("Chukchi", "French", "Khana", "Nii"),
 ```
 
 ### 9.2
-Create a map of the Bodish and add minimap with argument `minimap = TRUE`:
+Create a map of Bodish languages and add minimap with argument `minimap = TRUE`:
 ```{r, echo = FALSE}
 map.feature(languages = lang.aff("Bodish"),
             minimap = TRUE)
 ```
 
 ### 9.3
-Download [80. feature from WALS](wals.info/feature/80A) using `wals.feature("80a")` and draw a map:
+Download [80. feature from WALS](wals.info/feature/80A) using function `wals.feature("80a")` and draw a map:
 ```{r, echo = FALSE}
 df <- wals.feature("80a")
 map.feature(languages = df$language,
@@ -259,3 +259,5 @@ map.feature(languages = df$language,
 ## 10. Further reading
 
 The whole `lingtypology` tutorial is available [here](https://ropensci.github.io/lingtypology/).
+
+There is also [small section](https://ropensci.github.io/lingtypology/lingtypology_db_API.html) about downloading data from open linguistic databases.

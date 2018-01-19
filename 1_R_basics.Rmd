@@ -153,6 +153,12 @@ install.packages("devtools")
 devtools::install_github("ropensci/lingtypology")
 ```
 
+* or package file
+```{r, eval=FALSE}
+install.packages("lingtypology",
+                 destdir = "/path/to/your/package")
+```
+
 After the package is installed you need to load the package using the following command:
 ```{r, eval=FALSE}
 library("lingtypology")
