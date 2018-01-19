@@ -72,12 +72,12 @@ my_var <- my_var + 7
 5:9
 11:4
 numbers <- c(7, 9.9, 24)
-words <- c("the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog")
-one_word <- c("the quick brown fox jumps over the lazy dog")
+multiple_strings <- c("the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog")
+one_string <- c("the quick brown fox jumps over the lazy dog")
 true_false <- c(TRUE, FALSE, FALSE, TRUE)
 length(numbers)
-length(words)
-length(one_word)
+length(multiple_strings)
+length(one_string)
 ```
 
 ### 3.3 Dataframe
@@ -96,7 +96,7 @@ ncol(my_df)
 ### 3.4 Indexing
 ```{r}
 numbers[3]
-words[9]
+multiple_strings[9]
 my_df[2, 3]
 my_df[2,]
 my_df[,3]
